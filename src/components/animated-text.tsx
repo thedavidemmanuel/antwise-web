@@ -21,7 +21,7 @@ export default function AnimatedText() {
     }, 3000); // Change every 3 seconds
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [phrases.length]);
 
   return (
     <span 
