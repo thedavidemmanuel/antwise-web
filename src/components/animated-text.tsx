@@ -4,32 +4,54 @@ import { useEffect, useState } from 'react';
 
 export default function AnimatedText() {
   const phrases = ['dreamers', 'go-getters', 'night owls', 'visionaries'];
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
+  const [state, setState] = useState({
+    currentIndex: 0,
+    isVisible: true,
+    isMounted: false
+  });
 
   useEffect(() => {
+    setState(prev => ({ ...prev, isMounted: true }));
+  }, []);
+
+  useEffect(() => {
+    if (!state.isMounted) return;
+
     const intervalId = setInterval(() => {
-      setIsVisible(false);
+      setState(prev => ({ ...prev, isVisible: false }));
       
       setTimeout(() => {
-        setCurrentIndex((prevIndex) => 
-          prevIndex === phrases.length - 1 ? 0 : prevIndex + 1
-        );
-        setIsVisible(true);
-      }, 500); // Half of the interval for fade out/in
-      
-    }, 3000); // Change every 3 seconds
+        setState(prev => ({
+          ...prev,
+          currentIndex: prev.currentIndex === phrases.length - 1 ? 0 : prev.currentIndex + 1,
+          isVisible: true
+        }));
+      }, 500);
+    }, 3000);
 
     return () => clearInterval(intervalId);
-  }, [phrases.length]);
+  }, [state.isMounted, phrases.length]);
+
+  // Use a stable initial render that matches SSR
+  if (!state.isMounted) {
+    return (
+      <span 
+        suppressHydrationWarning 
+        className="bg-gradient-to-l from-purple-600 to-purple-400 bg-clip-text text-transparent"
+      >
+        {phrases[0]}
+      </span>
+    );
+  }
 
   return (
     <span 
+      suppressHydrationWarning
       className={`bg-gradient-to-l from-purple-600 to-purple-400 bg-clip-text text-transparent transition-opacity duration-500 ${
-        isVisible ? 'opacity-100' : 'opacity-0'
+        state.isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      {phrases[currentIndex]}
+      {phrases[state.currentIndex]}
     </span>
   );
 }
