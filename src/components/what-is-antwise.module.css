@@ -1,0 +1,36 @@
+/* what-is-antwise.module.css */
+
+/* Container maintains the original Figma artboard aspect ratio */
+.container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2719 / 2300;
+  }
+  
+  /* Home Screen styles (Figma values converted to percentages) */
+  .homeScreen {
+    position: absolute;
+    left: 0;
+    top: 10.3%;           /* (237 / 2300) * 100 */
+    width: 35.34%;         /* (961 / 2719) * 100 */
+    height: 82.61%;        /* (1900 / 2300) * 100 */
+  }
+  
+  /* Onboarding Screen styles */
+  .onboardingScreen {
+    position: absolute;
+    left: 64.66%;         /* (1758 / 2719) * 100 */
+    top: 10.3%;           /* (237 / 2300) * 100 */
+    width: 35.34%;        /* (961 / 2719) * 100 */
+    height: 82.61%;       /* (1900 / 2300) * 100 */
+  }
+  
+  /* Splash Screen styles */
+  .splashScreen {
+    position: absolute;
+    left: 28.3%;          /* (769 / 2719) * 100 */
+    top: 0;
+    width: 42.77%;        /* (1163 / 2719) * 100 */
+    height: 100%;
+  }
+  

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import AnimatedText from '@/components/animated-text';
+import WhatIsAntwise from '@/components/what-is-antwise';
 import { FC, ReactNode } from 'react';
 import {
   PiggyBank,
@@ -45,6 +46,7 @@ export default function Home(): React.ReactElement {
     <main className="min-h-screen w-full bg-white relative px-4 sm:px-6 md:px-8">
       {/* Hero Section */}
       <section className="w-full max-w-[1312px] min-h-[600px] sm:h-[695px] mx-auto bg-black rounded-[20px] sm:rounded-[30px] relative px-6 sm:px-16 py-8 sm:py-12 mt-4 sm:mt-12 mb-12 sm:mb-24">
+        {/* Hero section content remains the same */}
         <div className="h-full">
           {/* Tagline section */}
           <div className="relative sm:absolute sm:left-12 sm:top-32 mb-8 sm:mb-0">
@@ -98,36 +100,10 @@ export default function Home(): React.ReactElement {
         </div>
       </section>
 
-      {/* What Is Antwise Section */}
-      <section className="w-full max-w-[1312px] mx-auto px-4 py-8 sm:py-16 flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12">
-        {/* Text Content */}
-        <div className="w-full lg:w-1/2 space-y-4 sm:space-y-6 text-center lg:text-left">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-lexend text-black">
-            What Is Antwise?
-          </h2>
-          <p className="text-base sm:text-lg text-black/90 max-w-xl mx-auto lg:mx-0">
-            Antwise is more than just a money app—it&apos;s a lifestyle companion. We&apos;re here to empower students and young professionals across Africa to take charge of their finances with tools that are intuitive, fun, and tailored to your needs.
-          </p>
-          <p className="text-base sm:text-lg text-black/90 max-w-xl mx-auto lg:mx-0">
-            Whether you&apos;re chasing big dreams, stacking up savings, or figuring out how to adult, Antwise has your back every step of the way.
-          </p>
-        </div>
+      {/* What Is Antwise Section - Using the new component */}
+      <WhatIsAntwise />
 
-        {/* Image Content */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center">
-          <div className="relative w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[500px] aspect-square sm:aspect-video">
-            <Image
-              src="/wavy-man-attracts-finances-with-a-big-magnet.png"
-              alt="Woman working remotely on laptop"
-              fill
-              className="object-contain"
-              priority
-              unoptimized
-            />
-          </div>
-        </div>
-      </section>
-
+    
       {/* Why Antwise Section */}
       <section className="w-full max-w-[1312px] mx-auto px-4 py-8 sm:py-16 flex flex-col items-center">
         <div className="text-center max-w-5xl mb-8 sm:mb-16">
