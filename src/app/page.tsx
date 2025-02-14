@@ -117,7 +117,7 @@ export default function Home(): React.ReactElement {
         <div className="w-full lg:w-1/2 flex items-center justify-center">
           <div className="relative w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[500px] aspect-square sm:aspect-video">
             <Image
-              src="/florid-woman-working-remotely-on-laptop.gif"
+              src="/wavy-man-attracts-finances-with-a-big-magnet.png"
               alt="Woman working remotely on laptop"
               fill
               className="object-contain"
